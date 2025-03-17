@@ -76,7 +76,7 @@ class UserController extends Controller {
 
         if ($user && password_verify($password, $user->getPasswordHash())) {
             $_SESSION['userId'] = $user->getId();
-            $_SESSION['username'] = $user->getUsername();
+            $_SESSION['username'] = $user->getUserName();
             $this->redirect('/dashboard');
         } else {
             $_SESSION['login_error'] = 'Identifiants incorrects';

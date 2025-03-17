@@ -60,11 +60,11 @@ class User {
     }
 
     public function getUserName(): ?string {
-        return $this->userName;
+        return $this->username;
     }
 
-    public function setUserName($userName): void {
-        $this->userName = $userName;
+    public function setUserName($username): void {
+        $this->username = $username;
     }
 
     public function getEmail(): ?string {
