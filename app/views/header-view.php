@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="app-host" content="<?php echo getenv('HOST'); ?>">
-    <title>GSB</title>
+    <title>MedManager</title>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <style>
         @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css");
@@ -169,7 +169,7 @@
     ?>
     <nav class="neo-nav" x-data="{ isOpen: false }">
         <div class="neo-container">
-            <a href="<?= $host ?>" class="neo-brand">GSB</a>
+            <a href="<?= $host ?>" class="neo-brand">MedManager</a>
 
             <button class="neo-hamburger" :class="{ 'active': isOpen }" @click="isOpen = !isOpen" aria-label="Menu">
                 <div></div>
@@ -179,6 +179,8 @@
 
             <ul class="neo-menu" :class="{ 'active': isOpen }">
                 <?php if (isset($_SESSION["userId"])): ?>
+                    <li><a href="<?= $host ?>/prescription" class="<?= strpos($_SERVER['REQUEST_URI'], '/prescription') !== false ? 'active' : '' ?>">Ordonnance</a></li>
+                    <li><a href="<?= $host ?>/patient" class="<?= strpos($_SERVER['REQUEST_URI'], '/patient') !== false ? 'active' : '' ?>">Patient</a></li>
                     <li><a href="<?= $host ?>/dashboard" class="<?= strpos($_SERVER['REQUEST_URI'], '/dashboard') !== false ? 'active' : '' ?>">Tableau de bord</a></li>
                     <li><a href="<?= $host ?>/user/logout">Déconnexion</a></li>
                 <?php else: ?>
