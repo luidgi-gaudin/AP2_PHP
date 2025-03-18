@@ -59,6 +59,7 @@ function initializeDatabase($host, $username, $password, $dbname) {
               `Date_naissance_m` datetime(6) NOT NULL,
               `UserName` varchar(256) DEFAULT NULL,
               `Email` varchar(256) DEFAULT NULL,
+              `Role` int(11) NOT NULL,
               `EmailConfirmed` tinyint(1) NOT NULL,
               `PasswordHash` longtext DEFAULT NULL,
               `TwoFactorEnabled` tinyint(1) NOT NULL,
@@ -66,6 +67,7 @@ function initializeDatabase($host, $username, $password, $dbname) {
               PRIMARY KEY (`Id`),
               UNIQUE KEY `UserNameIndex` (`UserName`),
               KEY `EmailIndex` (`Email`)
+              CONSTRAINT `FK_Users_Roles_Id` FOREIGN KEY (`Role`) REFERENCES `roles` (`Id`) ON DELETE CASCADE,
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
         ");
 
